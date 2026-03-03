@@ -6,7 +6,7 @@ import {VitePluginNode} from "vite-plugin-node";
 const maps = getMaps();
 
 let optimizerOptions: OptimizeOptions = {
-    logs: process.env.LOG_LEVEL && process.env.LOG_LEVEL in LogLevel ? LogLevel[process.env.LOG_LEVEL] : LogLevel.NORMAL,
+    logs: LogLevel.VERBOSE,
 };
 
 if (process.env.TILESET_OPTIMIZATION && process.env.TILESET_OPTIMIZATION === "true") {
@@ -18,8 +18,8 @@ if (process.env.TILESET_OPTIMIZATION && process.env.TILESET_OPTIMIZATION === "tr
             compress: {
                 quality: [qualityMin, qualityMax],
             }
-        }
-    }
+        },
+    };
 }
 
 export default defineConfig({
